@@ -75,13 +75,15 @@ module Apipie
         @swagger[:host] = Apipie.configuration.swagger_api_host
       end
 
-      if params_in_body?
-        @swagger[:consumes] = ['application/json']
-        @swagger[:info][:title] += " (params in:body)"
-      else
-        @swagger[:consumes] = ['application/x-www-form-urlencoded', 'multipart/form-data']
-        @swagger[:info][:title] += " (params in:formData)"
-      end
+      # if params_in_body?
+        # @swagger[:consumes] = ['application/json']
+        # @swagger[:info][:title] += " (params in:body)"
+      # else
+        # @swagger[:consumes] = ['application/x-www-form-urlencoded', 'multipart/form-data']
+        # @swagger[:info][:title] += " (params in:formData)"
+      # end
+
+      @swagger[:consumes] = ['application/vnd.api+json']
 
       @paths = @swagger[:paths]
       @definitions = @swagger[:definitions]
@@ -539,7 +541,7 @@ module Apipie
         end
       end
     end
-    
+
   end
 
 end
