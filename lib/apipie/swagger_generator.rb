@@ -223,7 +223,7 @@ module Apipie
 
         methods[method_key] = {
             tags: [tag_name_for_resource(ruby_method.resource)] + warning_tags,
-            consumes: params_in_body? ? ['application/json'] : ['application/x-www-form-urlencoded', 'multipart/form-data'],
+            consumes: ['application/vnd.api+json'],
             operationId: op_id,
             summary: Apipie.app.translate(api.short_description, @current_lang),
             parameters: swagger_params_array_for_method(ruby_method, api.path),
